@@ -1,0 +1,117 @@
+CREATE TABLE marca(
+  codigo int auto_increment,
+  descricao varchar(50),
+  primary key(codigo)
+);
+
+CREATE TABLE produto(
+  codigo int auto_increment,
+  descricao varchar(50),
+  cod_marca int,
+  primary key (codigo),
+  foreign key (cod_marca) references marca(codigo)
+);
+
+INSERT INTO marca
+(descricao)
+VALUES
+('GM');
+
+INSERT INTO marca
+(descricao)
+VALUES
+('VW');
+
+INSERT INTO marca
+(descricao)
+VALUES
+('Fiat');
+
+INSERT INTO produto
+(descricao, cod_marca)
+VALUES
+('Celta', 1);
+
+INSERT INTO produto
+(descricao, cod_marca)
+VALUES
+('Gol', 2);
+
+INSERT INTO produto
+(descricao, cod_marca)
+VALUES
+('Uno', 3);
+
+ALTER TABLE produto
+  ADD cod_fabricante int;
+  
+CREATE TABLE fabricante(
+  codigo int auto_increment,
+  nome varchar(50),
+  primary key (codigo)
+);
+
+ALTER TABLE produto
+  ADD foreign key (cod_fabricante) references fabricante (codigo);
+  
+INSERT INTO fabricante
+(nome)
+VALUES
+('Montadora 1');
+  
+UPDATE produto
+   SET cod_fabricante = 1
+ WHERE codigo = 2;
+ 
+----
+/*
+  CREATE
+  ALTER
+  DROP
+  
+  INSERT
+  UPDATE
+  DELETE
+  SELECT
+*/
+
+SELECT *
+  FROM produto;
+
+SELECT codigo, descricao
+  FROM produto;
+  
+SELECT *
+  FROM produto
+ WHERE codigo = 2;
+ 
+SELECT *
+  FROM produto
+ WHERE descricao = 'Uno';
+  
+SELECT *
+  FROM produto
+ WHERE descricao = 'Uno' OR
+       codigo    = 1;
+	   
+-- Faça uma Pesquisa na tabela Marca que apareça somente descrição do 
+-- codigo 2;
+
+SELECT descricao
+  FROM marca
+ WHERE codigo = 2;
+ 
+-- Faça uma Pesquisa na tabela Produto que demonstre todos os produtos
+-- que não possui fabricante.
+
+SELECT *
+  FROM produto
+ WHERE cod_fabricante IS NULL;
+ 
+SELECT *
+  FROM produto
+ WHERE cod_fabricante IS NOT NULL;
+
+
+
+ 

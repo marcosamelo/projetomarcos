@@ -1,0 +1,87 @@
+CREATE TABLE cliente(
+  codigo int auto_increment,
+  nome varchar(50),
+  rg varchar(15),
+  cpf varchar(11),
+  data_nascimento date,
+  PRIMARY KEY(codigo)
+);
+  
+CREATE TABLE pedido_venda(
+  codigo int auto_increment,
+  data_emissao date,
+  cod_cliente int,
+  PRIMARY KEY(codigo),
+  FOREIGN KEY(cod_cliente) REFERENCES cliente(codigo)
+);
+  
+CREATE TABLE produto_pedido_venda(
+  codigo int auto_increment,
+  cod_produto int,
+  cod_pedido_venda int,
+  quantidade int,
+  valor_unitario float,
+  PRIMARY KEY(codigo),
+  FOREIGN KEY(cod_produto) REFERENCES produto(codigo),
+  FOREIGN KEY(cod_pedido_venda) REFERENCES pedido_venda(codigo)
+);
+
+INSERT INTO cliente
+(nome, rg, cpf, data_nascimento)
+VALUES
+('Jose', '8899-0', '01201236585', '1980-02-05');
+
+INSERT INTO pedido_venda
+(data_emissao, cod_cliente)
+VALUES
+('2017-03-27', 1);
+
+INSERT INTO produto_pedido_venda
+(cod_produto, cod_pedido_venda, quantidade, valor_unitario)
+VALUES
+(1, 1, 2, 30000.05);
+
+INSERT INTO produto_pedido_venda
+(cod_produto, cod_pedido_venda, quantidade, valor_unitario)
+VALUES
+(2, 1, 3, 40000);
+
+INSERT INTO produto_pedido_venda
+(cod_produto, cod_pedido_venda, quantidade, valor_unitario)
+VALUES
+(1, 1, 1, 28000);
+---------------------------------
+31/10/2017
+selicionar um pedido de venda de um cliente .
+SELECT * FROM  pedido_venda p  // p = apelido usar quando fizer seleção com mais de uma tabela//
+WHERE p.cod_cliente=1;
+
+selecionar pedido de venda demostrando conforme exemplo abaixo:
+
+codigo pedido, data de emissão, nome do cliente;
+
+SELECT p.codigo AS nome_cliente,// AS e um apelido paras colunas //
+       p.data_emissao,
+       c.nome
+    FROM
+    pedido_venda p, cliente c
+    WHERE p.cod_cliente = c.codigo;
+    
+selecionar pedido de venda demostrando conforme exemplo abaixo:
+codigo pedido, Data de emissao, nome do cliente , produto, marca
+
+SELECT p.cod_pedido,
+       p.data_emissao,
+       c.nome AS nome_do_cliente ,
+       p.produto,
+       m.marca
+FROM
+    pedido_venda p, cliente c , produto p, marca m 
+    WHERE p.cod_cliente = c.codigo;
+
+
+
+
+
+
+

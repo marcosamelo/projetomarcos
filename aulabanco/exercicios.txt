@@ -1,0 +1,30 @@
+SELECT p.codigo,
+       c.nome,
+       pr.descricao,
+	   ppv.quantidade,
+       ppv.valor_unitario,
+	   (ppv.quantidade*ppv.valor_unitario) as total_produto
+
+  FROM pedido_venda         p,
+       cliente              c,
+       produto              pr,
+       produto_pedido_venda ppv 
+WHERE p.cod_cliente = c.codigo and
+      p.codigo      = ppv.cod_pedido_venda and
+      ppv.cod_produto=pr.codigo
+//////////////////////////////////////////////////////////////////////////////////////////
+//exercicio 09///
+
+SELECT m.descricao as marca ,
+       pr.descricao as produto ,
+	   ppv.quantidade as quantidade 
+       
+FROM
+    pedido_venda 		  p,
+    produto 			  pr,
+    marca 				  m ,
+    produto_pedido_venda ppv 
+WHERE 
+pr.cod_marca=m.codigo and 
+pr.codigo=ppv.cod_produto and
+ppv.cod_pedido_venda=p.codigo

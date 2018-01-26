@@ -1,0 +1,70 @@
+    body{
+        background: #A6BEBE;
+           }
+
+      table.cinza{
+	    margin:5% 10% 5% 10%;
+        border: none;
+	    height: 30%;
+        width: 80%;
+        background: ##A6BEBE;
+
+           }
+         
+
+      table.rosa{
+	    margin:0% 0% 10% 20%;        
+	    height: 10%;
+        width:50%;
+        background: #A6BEBE;
+        border: 1px outset;
+	      
+	
+          }
+	  
+	    table.rosa tr{
+			 text-align:center;
+			 
+
+			   	}
+				
+				
+	    table.cinza p{
+     		 color:#160F02;
+             font-size: 25px;  
+			margin:5% 0% 0% 0%; 			 
+			   	}
+         td.bottom {
+         
+          vertical-align: bottom;
+
+          }    
+         td.top{
+         
+          vertical-align: top;          
+          }       
+		
+	     input[type=text] {
+         width: 80%;
+          padding: 10px 12px;
+         margin: none;
+         box-sizing: border-box;
+	     border: inset	
+          }
+
+       #pais{ 
+         width:20%;
+          }
+	   img {
+         width: 42px;
+         height: 42px;
+	
+          } 
+	   input[type=image] {
+	     Width: 42px;
+         height: 42px;
+	
+          } 
+	
+	
+	

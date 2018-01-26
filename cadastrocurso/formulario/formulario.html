@@ -1,0 +1,64 @@
+  
+<!DOCTYPE html>
+ <head>
+  <title> Trabalhando com formularios </title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" type="text/css" href="estilo.css"/a><!--A TAG link serve para puxar um pagina de estilo css ela self close abre e ja fecha-->
+  </head>
+    <body>
+
+  <h1>Formulário Estilizado</h1>
+  
+    <form action="../controlecadastro/controlecadastro.php" method="POST">
+    <table align = "center" class = "cinza">
+            <tr>
+              <td class="bottom">
+                <p>Nome </p>
+               </td>
+              </tr>
+           <tr>
+              <td class="top">
+                <input type = "text" name="nome" size = "35"/>
+              </td>
+            </tr>
+            <tr>
+              <td class="bottom">
+              <p>Coordernador </P>
+              </td>
+           </tr>
+           <tr>
+             <td class="top">
+                <input type = "text" name="coordenador"size = "30"/>
+                </td>
+           </tr>
+           <tr>
+              <td class="bottom">
+              <p>Carga Horaria </P> 
+              </td>
+            </tr>
+           <tr>
+              <td class="top">
+               <input type = "text" name="cargahoraria" id="pais"/> HORAS
+             </td>
+         </tr>
+    </table>
+    <br>
+    <br>
+    <table  class = "rosa">
+      <tr>
+        <td >      
+          <input class="limpar" type="reset" value="limpar"> 
+        </td>
+        <td>        
+         
+        </td>  
+        <td>
+          
+        </td>
+        <td>
+          <input class="enviar" type="submit" value="enviar">
+        </td>
+      </tr>
+    </table>
+</body>
+</html>
